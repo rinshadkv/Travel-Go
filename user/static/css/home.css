@@ -1,0 +1,17 @@
+   #h1{
+     
+    text-shadow: 1px 1px white;
+ text-align: center; 
+color: plum;
+height: auto;
+width: auto;
+
+
+ position: fixed;
+top: 50%;
+left: 50%;
+margin-top: -150px;
+margin-left: -270px; 
+  }  
+
+    
