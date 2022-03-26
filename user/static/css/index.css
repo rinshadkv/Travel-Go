@@ -1,0 +1,21 @@
+ /* #maphead{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 800Px;
+    margin-left: -310px; 
+    font-size: 70PX;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(252, 13, 64)   
+} 
+
+  */
+.l1{
+    font-size: 20px;
+    text-decoration: none;
+    padding: 20px;
+    padding-bottom: 5px;
+    float: left;
+    color:white;
+    
+}

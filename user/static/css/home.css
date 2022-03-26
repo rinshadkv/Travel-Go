@@ -1,17 +1,79 @@
-   #h1{
-     
-    text-shadow: 1px 1px white;
- text-align: center; 
-color: plum;
-height: auto;
-width: auto;
+#lc{
+    font-size: 30px;
+    color:black;
+    font-weight: 500;
+    padding-bottom: 0px;
+}
+/* #bg1{
+height: 100%;
+background-repeat: no-repeat;
+width: 100%;
+background-image: url("https://uploads.montagehotels.com/uploads/2020/11/19133818/MLB-Architectural-Mosaic-Pool-Horizon-Low-6-scaled.jpg");
+background-size: cover;
+margin-left: 150px;
+margin-top: 50px;
+} */
+#dubai{
+    width: 60px;
+    height: 60px;
+   
+    border-radius: 50%;
 
+        
 
- position: fixed;
-top: 50%;
-left: 50%;
-margin-top: -150px;
-margin-left: -270px; 
-  }  
-
+}
+#usa{
+    width: 60px;
+    height: 60px;
     
+    border-radius: 50%;
+
+        
+}
+#spain{
+    width: 60px;
+    height: 60px;
+   
+    border-radius: 50%;
+
+        
+}
+#india{
+    width: 60px;
+    height: 60px;
+   
+    border-radius: 50%;
+
+         
+}
+#turkey{
+    width: 60px;
+    height: 60px;
+    
+    border-radius: 50%;
+
+        
+
+}
+#maldivies{
+    width: 60px;
+    height: 60px;
+    
+    border-radius: 50%;
+
+        
+
+}
+#bahmas{
+    width: 60px;
+    height: 60px;
+   
+    border-radius: 50%;
+
+        
+
+}
+.i{
+    padding-bottom: 10px;
+}
+
