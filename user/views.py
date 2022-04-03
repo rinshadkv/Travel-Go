@@ -4,25 +4,17 @@ from django.shortcuts import render
 def home(request):
     return render(request,'index.html')
 
-def login(request):
+def user_login(request):
     return render(request,'login.html')
 
-def signup(request):
+def user_signup(request):
     return render(request,'signup.html')
+
 def master(request):
     return render(request,'usermaster.html')
-def hotels(request):
+def view_hotels(request):
     return render(request,'hotels.html')
 def profile(request):
     return render(request,'profile.html')
-def resorts(request):
+def view_resorts(request):
     return render(request,'resorts.html')    
-def middleeast_hotels(request):
-    return render(request,'middleeast-hotels.html')        
-def india_hotels(request):
-    return render(request,'india-hotel.html')    
-def europe_hotels(request):
-    return render(request,'europe-hotels.html')            
-def others_hotels(request):
-    return render(request,'others-hotels.html')                
-                   

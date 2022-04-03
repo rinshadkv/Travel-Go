@@ -4,49 +4,28 @@
 <div >
 
 
-<!-- <div class="row" style="padding-top: 10px;padding-bottom: 100px;padding-left: 200px;">
-  <div class="card" style="width: 400px;">
-    <img src="{% static 'images/burj 1.jpg' %}" class="card-img-top img-fluid" alt="Fissure in Sandstone" style="height: 370px;width: 400px;"/>
-    <div class="card-body">
-      <h5 class="card-title">MIDDLE EAST</h5>
-     <a href="#!" class="btn btn-secondary">SEARCH</a>
-    </div>
-  </div>
-  <div class="card" style="width:400px ;margin-left: 100px;" >
-    <img src="{% static 'images/india.jpeg' %}"  class="card-img-top img-fluid" alt="Fissure in Sandstone" style="height: 100%;width: 100%;"/>
-    <div class="card-body">
-      <h5 class="card-title">INDIA</h5>
-       <a href="#!" class="btn btn-secondary " >SEARCH</a>
-    </div>
-  </div>
-  
-  </div>
-  <div class="row" style="padding-bottom: 100px;padding-left: 200px;">
-    <div class="card" style="height: 400px;width: 400px;">
-      <img src="{% static 'images/spain.jpg' %}" class="card-img-top img-fluid" alt="Fissure in Sandstone" style="height: 350px;width: 400px;"/>
-      <div class="card-body">
-        <h5 class="card-title">EUROPE</h5>
-         <a href="#!" class="btn btn-secondary">SEARCH</a>
-      </div>
-    </div>
-    <div class="card" style="height: 400px;width: 400px;margin-left: 100px;">
-      <img src="{% static 'images/turkey.jpg' %}" class="card-img-top" alt="Fissure in Sandstone" style="height: 350px;width: 100%;"/>
-      <div class="card-body">
-        <h5 class="card-title">OTHERS PLACES</h5>
-         <a href="#!" class="btn btn-secondary">search</a>
-      </div>
-    </div>
-     -->
      <style>
        img{
          border-radius: 20px;
         
        }
+       a{
+         text-decoration: none;
+         color: black;
+         size: 30px;
+         
+       }
+       
+         
+       
      </style>
-      <br><br> <div class="row">
+<h2 style="margin-left: 80px;margin-top: 20px;">HOTELS</h2>
+      <br><br>
+      
+       <div class="row">
 <div class="col-1"></div>
-<div class="col-4"><a href="" ><img src="{% static 'images/turkey.jpg' %}" alt="" style="width: 100%;">india</a></div>
-<div class="col-4"><a href="" ><img src="{% static 'images/turkey.jpg' %}" alt="" style="width: 100%;"></a></div>
+<div class="col-4"><a href="/india_hotels/" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZEFfkTxMrLDcixM2K3XXEO__0vXS2IcGAYw&usqp=CAU" alt="" style="width: 100%;height: 100%;">india</a></div>
+<div class="col-4"><a href="/middleeast_hotels/" ><img src="{% static 'images/burj 1.jpg' %}" alt="" style="width: 100%;height: 100%;" class="img-fluid">middle east</a></div>
 
 
 
@@ -54,8 +33,8 @@
        <br><br><br>
        <div class="row">
         <div class="col-1"></div>
-        <div class="col-4"  style=" text-shadow: 10px 10px brown;"><a href="" ><img src="{% static 'images/turkey.jpg' %}" alt="" style="width: 100%;"></a></div>
-        <div class="col-4"><a href="" ><img src="{% static 'images/turkey.jpg' %}" alt="" style="width: 100%;"></a></div>
+        <div class="col-4"  ><a href="/europe_hotels/" ><img src="https://www.rentacarbestprice.com/wp-content/uploads/2016/09/image-12.jpeg" alt="" style="width: 100%;height: 100%;">europe</a></div>
+        <div class="col-4"><a href="/others_hotels/" ><img src="https://content.fortune.com/wp-content/uploads/2021/05/Plaza-Exterior-from-Central-Park.jpg" alt="" style="width: 100%;height: 100%;">other place</a></div>
         
         
         
@@ -78,4 +57,29 @@
 
     
 </div>
+<h2 style="margin-left: 80px;">RESORTS</h2>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-4"><a href="/resorts/" ><img src="https://gos3.ibcdn.com/c99fbddea80011eba4300242ac110002.jpg" alt="" style="width: 100%;height: 100%;">india</a></div>
+  <div class="col-4"><a href="/resorts/" ><img src="https://pickyourtrail.com/blog/wp-content/uploads/2020/04/Yachting-Lifestyle-365.jpg" alt="" style="width: 100%;height: 100%;" class="img-fluid">middle east</a></div>
+  
+  
+  
+         </div> 
+         <br><br><br>
+         <div class="row">
+          <div class="col-1"></div>
+          <div class="col-4"  ><a href="/resorts/" ><img src="{% static 'images/spain.jpg' %}" alt="" style="width: 100%;height: 100%;">europe</a></div>
+          <div class="col-4"><a href="/resorts/" ><img src="https://exp.cdn-hotels.com/hotels/17000000/16830000/16821700/16821632/7e6bd616_z.jpg?impolicy=fcrop&w=773&h=530&q=high" alt="" style="width: 100%;height: 100%;">other place</a></div>
+          
+          
+          
+                 </div> 
+          
+          <br><br><br>
+  
+    </div>
+
+
+            
 {% endblock %}
