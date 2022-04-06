@@ -1,5 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-def home(request):
-    return render(request,'index.html')
+def host(request):
+    return render(request,'host_view1.html')
+
+def host_signup(request):
+    return render(request,'host_signup.html')  
+
+def host_dashboard(request):
+    return render(request,'host_dashboard.html')      

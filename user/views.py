@@ -12,9 +12,12 @@ def user_signup(request):
 
 def master(request):
     return render(request,'usermaster.html')
+
 def view_hotels(request):
     return render(request,'hotels.html')
+
 def profile(request):
     return render(request,'profile.html')
+    
 def view_resorts(request):
     return render(request,'resorts.html')    

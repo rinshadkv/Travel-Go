@@ -1,0 +1,50 @@
+
+#bg {
+    background-image: url("https://www.jetro.go.jp/ext_images/invest/img/setting_up/img-07.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+}
+
+#msg-1 {
+    font-size: 70px;
+    color: rgba(107, 222, 12, 0.977);
+    margin-top: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+
+}
+.card{
+    width: 300px;
+    height: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.card-img{
+    height:270px;
+}
+#bg2{
+    background-color: black;
+    text-decoration-color: white;
+}
+#why{
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+.card2{
+    height: 300px;
+    width: 300px;
+    border-radius: 25px;
+}
+#join{
+    background-image: url('https://media.istockphoto.com/photos/abstract-blurred-background-of-lobby-picture-id1248086073?k=20&m=1248086073&s=170667a&w=0&h=1iVmbE2YG-blZG240okmXHhTX3mJ79pktvObBwqqKH4=');
+background-repeat: no-repeat;
+background-size: 100% 100%;
+width: 100%;
+height: 400px;
+}
+.one{
+    text-decoration: none;
+    color: black;
+}
