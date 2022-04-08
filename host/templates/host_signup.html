@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,9 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/8ddc754e9e.js" crossorigin="anonymous"></script>
-   
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'javascript\signup.js'%}"></script>
     <style>
         body {
             background-image: url('https://www.pixel4k.com/wp-content/uploads/2018/09/palace-of-fine-arts-arch-night-san-francisco-california-4k_1538066934-768x432.jpg');
@@ -30,6 +33,11 @@
   box-sizing: border-box;
 }
 
+.error {
+      color: red;
+   
+      font-weight: 1000;
+   }
 /* Add padding to containers */
 .container {
   padding: 16px;
@@ -103,14 +111,17 @@ label{
 <div class="row">
     <div class="col-6"></div>
     <div class="col-4">
-        <form action="/action_page.php">
+        <form action="/host/host_dashboard/" id="signup">
             <div class="container">
               
               <hr>
           
               <label for="name"><b>FULL NAME</b></label>
               <input type="text" placeholder="Enter full name" name="name" id="name" required>
-          
+          <br>
+          <label for="countr"><b>country  </b></label>
+              <input type="text" placeholder="Enter country" name="country" id="country" required>
+<br>
               <label for="phone"><b>Phone </b></label>
               <input type="tel" placeholder="Enter number" name="phone" id="number" required>
 <br>
