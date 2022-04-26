@@ -31,3 +31,12 @@ size: 20px;
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+ #btn1{
+ margin: 0 auto;
+  display: block;
+}  
+#btn2{
+  margin: 0 auto;
+   display: block;
+ }  
+ 

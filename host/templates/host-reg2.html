@@ -1,0 +1,85 @@
+{% extends 'host-master.html' %}
+{% load static %}
+{% block content %}
+
+<div>
+    <div style="border: solid 1px;width: 50%;padding: 20px;height: 400px;margin-top: 50px;">
+
+
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+
+
+            <table style="border-spacing: 5px;border-collapse: separate;">
+                <thead>
+                    <h1>
+                        Tell About your property
+                    </h1>
+                </thead>
+                <tr>
+                    <td> <label for="seller name">property type</label></td>
+                    <td>
+                        <label for="">Hotel</label>
+                        <input type="radio" value="hotel" name="property" required>
+
+                        <label for="">Resort</label>
+                        <input type="radio" value="resort" name="property" required>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="hotel"> property Name</label>
+                    </td>
+                    <td>
+                        <input id="hotel" type="text" class="form-control" required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><label for="rooms">totel rooms</label>
+                    </td>
+                    <td> <input type="number" min="1" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="place"> place </label>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="image">image</label>
+                    </td>
+                    <td><input type="file"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><button type="submit" class="btn btn-success text-center">submit</button></td>
+                </tr>
+            </table>
+
+
+
+
+
+
+
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+</div>
+{% endblock %}

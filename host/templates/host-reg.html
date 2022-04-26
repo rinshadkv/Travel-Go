@@ -1,0 +1,77 @@
+{% extends 'host-master.html' %}
+{% block content %}
+{% load static %}
+<div>
+    
+    <!-- <style>
+  
+        input{
+            width: 300px;
+            height: 40px;
+            margin-top: 10px;
+            
+        }
+        div{
+            position: absolute;
+  
+  top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto
+        }
+
+    </style> -->
+
+
+    <div style="border: solid 1px;width: 50%;padding: 20px;height: 400px;margin-top: 50px;">
+        <form >
+           {% csrf_token %}
+        <table>
+          <thead><h1 >
+              Personal details
+          </h1>
+          </thead>
+            <tr>
+                <td> <label for="seller name">full name</label></td>
+           <td><input type="text" name='seller_name'>
+            <br></td>
+            </tr>
+            <tr>
+                <td><label for="email">email</label></td>
+                <td><input type="email" name='email'></td>
+            </tr>
+        
+    
+       <tr>
+           <td><label for="addres">address</label></td>
+           <td><input type="text" name='address'></td>
+       </tr>
+        <tr>
+            <td><label for="user name">user name</label></td>
+            <td><input type="text" name='user_name'></td>
+        </tr>
+        
+        <tr>
+            <td><label for="password">password</label></td>
+        <td><input type="password" name='password'></td>
+        </tr>
+        
+        <tr>
+          <td> profile image</td>
+          <td><input type="file" name='image'></td>
+      </tr>
+       
+ 
+</table>
+
+<button type='submit' style="width: 40%;"  class="btn btn-success">done</button>
+<a href="/host/host-registration2/" class="btn btn-success" style="width: 40%;" ><i class="fa-solid fa-arrow-right-long">next</i> </a>
+        </form>
+    </div>
+
+    
+</div>
+
+{% endblock %}

@@ -111,9 +111,10 @@ label{
 <div class="row">
     <div class="col-6"></div>
     <div class="col-4">
-        <form action="/host/host_dashboard/" id="signup">
-            <div class="container">
-              
+        <form action="/host/host-registration/" id="signup" method="post">
+          {% csrf_token %}
+            <div class="container-fluid">
+             
               <hr>
           
               <label for="name"><b>FULL NAME</b></label>

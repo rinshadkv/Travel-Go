@@ -67,7 +67,7 @@
 
 
 
-<nav class="navbar navbar-light bg-light">
+
   <div class="container-fluid">
 
 
@@ -75,12 +75,12 @@
 
 
 
-    <div class="row">
+    <div class="row"  >
       <div class="col-3">
 
         <h3 style="color: skyblue;display: inline;">TRAVEL GO.COM</h3>
       </div>
-      <div class="col-9">
+      <div class="col-9 text-end">
         <div class="dropdown" style="display: inline; ">
           <button class="btn btn-LIGHT dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -124,10 +124,11 @@
             <li><a class="dropdown-item" href="#">MALDIVES</a></li>
             <li><a class="dropdown-item" href="#">USA</a></li>
             <li><a class="dropdown-item" href="#">BAHMAS</a></li>
-          </ul>
-        </div>
-        <a class="navbar-brand " href="/login/" style="font-weight: bold"><i class="fa fa-user "> </i>
-          LOG IN</a>
+          </ul></div>
+          <a class="navbar-brand " href="/login/" style="font-weight: bold;"><i class="fa fa-user "> </i>
+            LOG IN</a>
+        
+        
       
 </nav>
 </div>
@@ -163,9 +164,7 @@
   <br><br><br><br>
   <div class="row" style="margin-top: 10px;">
     <div class="col-1"></div>
-    <!-- <div class="col-2"><img src="{% static 'images/b1.jpg' %} " alt="" class="img-fluid"
-      style="border-radius: 25px;width: 100%">
-  </div> -->
+    
     <div class="col-3"><img src="{% static 'images/b1.jpg' %} " alt="" class="img-fluid"
         style="border-radius: 25px;width: 100%;height: 100%;">
     </div>
@@ -184,11 +183,11 @@
       <div class="col-md-4">
         <div class="card" style="width: 400px;border-radius: 25px;">
           <img src="https://www.readersdigest.ca/wp-content/uploads/2015/10/burj-al-arab-luxurious-hotels.jpg"
-            class="card-img-top" alt="..." width="350PX" height="350PX">
+            class="card-img-top,img-fluid" alt="..." >
           <div class="card-body">
             <h5 class="card-title">LUXOURY HOTELS</h5>
             <p class="card-text"></p>
-            <a href=" /hotels/" class="btn btn-dark">reserve </a>
+            <a href=" /hotels/" class="btn btn-dark" id="btn1">reserve </a>
           </div>
         </div>
       </div>
@@ -197,11 +196,11 @@
         <div class="card" style="width: 400px;border-radius: 25px;margin-left: 20px;">
           <img
             src="https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/master/pass/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg"
-            class="card-img-top" alt="..." height="350PX" width="350PX">
+            class="card-img-top,img-fluid" alt="...">
           <div class="card-body">
             <h5 class="card-title">LUXOURY RESORTS</h5>
             <p class="card-text"></p>
-            <a href="/hotels/" class="btn btn-dark"> reserve </a>
+            <a href="/hotels/" class="btn btn-dark" id="btn2"> reserve </a>
           </div>
         </div>
       </div>

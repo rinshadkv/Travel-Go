@@ -81,10 +81,11 @@ WSGI_APPLICATION = 'travel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'travel',
-        'port':'5432',
-        'user':'postgres',
-        'password':'root',
+        'NAME': 'travelgo',
+        'PORT':'5432',
+        'USER':'postgres',
+        'PASSWORD':'root',
+        'HOST':'localhost'
     }
 }
 
@@ -128,6 +129,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
    os.path.join(BASE_DIR, 'static/')
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

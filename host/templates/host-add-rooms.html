@@ -1,0 +1,93 @@
+{% extends 'host-master.html' %}
+{% block content %}
+{% load static %}
+<style>
+   
+</style>
+
+<div style="border: 1px solid ;">
+    <h4 style="border: 1px soild black;background-color: red;color: white; ">Add room details</h4>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div class="row">
+        
+            <div class="col-5">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="">room id or name</label>
+                        </td>
+                        <td>
+                            <input type="text" placeholder="Enter room name">
+                        </td>
+
+
+                    </tr>
+                    <tr><td></td>
+                        <th><label for="">guest capacity</label> </th>
+                    </tr>
+                    <tr>
+                        <td> <label for="">adult</label></td>
+                        <td> <input type="number" min="1"></td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="">child</label></td>
+                        <td><input type="number" min="0" ></td>
+
+                    </tr>
+                    <tr>
+<td>
+    <label for="">image</label>
+</td>
+<td>
+    <input type="file">
+</td>
+
+                    </tr>
+
+
+
+
+
+                </table>
+
+            </div>
+            <div class="col-5">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="">price</label>
+
+
+                        </td>
+                        <td>
+                            <input type="number" min="1">
+                        </td>
+                    </tr>
+                    <tr><td></td></tr>
+                    <tr>
+                        <td>
+                        <label for="">beds</label>
+                    </td>
+                    <td>
+                        <input type="number" placeholder="totel beds" min="1">
+                    </td>
+                </tr>
+                </table>
+<button class="btn btn-success" type="submit" style="margin-top: 50px;">add</button>
+            </div>
+        
+    </div>
+
+</form>
+
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

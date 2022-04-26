@@ -38,7 +38,8 @@
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
   
-                  <form action="" id="loginform">
+                  <form action="" id="loginform" method="POST">
+                    {% csrf_token %}
   
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -60,9 +61,9 @@
                     </div>
   
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button" id="log_btn" onclick="validation()">Login</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="button" id="log_btn" >Login</button>
                     </div>
-  
+  <p>sign in as a host <a href="/host/host-login/">login here</a></p>
                     <a class="small text-muted" href="#!">Forgot password?</a>
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="/signup/" style="color: #393f81;">Register here</a></p>
                     <a href="#!" class="small text-muted">Terms of use.</a>
@@ -78,52 +79,6 @@
     </div>
   </section>
     
-
-// function validation() {
-//   var usr=document.getElementById("username")
-//   var pass=document.getElementById("password")
-
-//   if(usr.value==""){
-//     document.getElementById("username").style.borderColor="red"
-//     document.getElementById("spn_usr").innerHTML="please enter your user name"
-//   }
-// else {
-//   document.getElementById("username").style.borderColor="black"
-//     document.getElementById("spn_usr").innerHTML=""
-
-// }
-
-// if(pass.value==""){
-//   document.getElementById("password").style.borderColor="red"
-//   document.getElementById("spn_pass").innerHTML="please enter pasword"
-
-// }
-// else{
-//   document.getElementById("password").style.borderColor="black"
-//   document.getElementById("spn_pass").innerHTML=""
-
-// }
-
-
-
-
-
-
-// }
-
-
-
-
-
-//     
-
-
-
-
-
-
-
-
 
 
 </body>
