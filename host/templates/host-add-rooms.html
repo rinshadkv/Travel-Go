@@ -37,17 +37,20 @@
 
                     </tr>
                     <tr>
-<td>
+<div id="addimage">
+    <td>
     <label for="">image</label>
+    
 </td>
 <td>
     <input type="file">
+   
 </td>
 
                     </tr>
 
-
-
+                </div>
+                <span class="btn btn-danger" onclick="addfunction()">add more image</span>
 
 
                 </table>
@@ -87,7 +90,12 @@
 </div>
 </div>
 
-
+<script>
+    function addfunction() {
+  var element = document.getElementById("addimage");
+  element.classList.add("");
+}
+</script>
 
 
 {% endblock %}

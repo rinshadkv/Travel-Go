@@ -1,0 +1,85 @@
+.gallery-button{
+
+position: relative;
+  width: 100%;
+}
+#gallery-btn{
+    position: absolute;
+    top: 80%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:white;
+    color: rgb(240, 11, 11);
+    font-size: 16px;
+    padding: 12px 24px;
+   text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+#btn1 {
+    margin: 0 auto;
+    display: block;
+}
+
+#btn2 {
+    margin: 0 auto;
+    display: block;
+}
+
+a.one:link {
+    color: white;
+}
+
+a.one:visited {
+    color: white;
+}
+
+a.one:hover {
+    color: #0fcef0;
+}
+
+
+a.one {
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.txt {
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+
+a.two:link {
+    color: white;
+}
+
+a.two:visited {
+    color: white;
+}
+
+a.two:hover {
+    color: skyblue;
+}
+
+a.two {
+    text-decoration: none;
+    font-weight: 100px;
+    font-size: 25px;
+}
+.gallery{
+    width: 150px;
+    height: 100px;
+}
+.button{
+    background-color: rgb(241, 8, 179);
+    color: white;
+    border-radius: 10px;
+    width: 75%;
+    margin-left: 10%;
+    border-color: transparent;
+    margin-bottom: 10px;
+}

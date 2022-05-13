@@ -8,10 +8,11 @@ urlpatterns=[
     path('hotel-details/',views.hotel_details),
     path('host-registration/',views.host_registration),
     path('host-registration2/',views.host_registration_2),
-    path('host-dashboard/',views.dashboard),
+    path('host-dashboard/',views.host_dashboard),
     path('host-view-booking/',views.view_booking),
     path('host-add-rooms/',views.add_rooms),
     path('host-login/',views.host_login),
     path('host-profile/',views.host_profile),
+    path('guest-reviews/',views.guest_reviews)
 
 ]

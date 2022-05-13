@@ -19,49 +19,60 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/8ddc754e9e.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'css/index.css'%}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <style>
-    a.one:link {
-      color: white;
-    }
+   #btn1{
+ margin: 0 auto;
+  display: block;
+}  
+#btn2{
+  margin: 0 auto;
+   display: block;
+ }  
+ a.one:link {
+  color: white;
+}
 
-    a.one:visited {
-      color: white;
-    }
+a.one:visited {
+  color: white;
+}
 
-    a.one:hover {
-      color: #0fcef0;
-    }
-
-
-    a.one {
-      text-decoration: none;
-      font-size: 25px;
-    }
-
-    .txt {
-      font-size: 30px;
-      text-decoration: underline;
-    }
+a.one:hover {
+  color: #0fcef0;
+}
 
 
-    a.two:link {
-      color: white;
-    }
+a.one {
+  text-decoration: none;
+  font-size: 25px;
+}
 
-    a.two:visited {
-      color: white;
-    }
+.txt {
+  font-size: 30px;
+  text-decoration: underline;
+}
 
-    a.two:hover {
-      color: skyblue;
-    }
 
-    a.two {
-      text-decoration: none;
-      font-weight: 100px;
-      font-size: 25px;
-    }
+a.two:link {
+  color: white;
+}
+
+a.two:visited {
+  color: white;
+}
+
+a.two:hover {
+  color: skyblue;
+}
+
+a.two {
+  text-decoration: none;
+  font-weight: 100px;
+  font-size: 25px;
+}
+#login-icon{
+  color: black;
+}
   </style>
 </head>
 
@@ -125,7 +136,7 @@
             <li><a class="dropdown-item" href="#">USA</a></li>
             <li><a class="dropdown-item" href="#">BAHMAS</a></li>
           </ul></div>
-          <a class="navbar-brand " href="/login/" style="font-weight: bold;"><i class="fa fa-user "> </i>
+          <a class="navbar-brand " id="login-icon" href="/login/" style="font-weight: bold;"><i class="fa fa-user "> </i>
             LOG IN</a>
         
         
@@ -139,7 +150,7 @@
   <div class="col-6">
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-        style="border: 1px solid;">
+        style="border: 1px solid;box-shadow: 5px 5px 5px;">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
@@ -163,40 +174,45 @@
 
   <br><br><br><br>
   <div class="row" style="margin-top: 10px;">
-    <div class="col-1"></div>
-    
-    <div class="col-3"><img src="{% static 'images/b1.jpg' %} " alt="" class="img-fluid"
+    <div class="col-1">
+    </div>
+    <div class="col-3">
+      <img src="{% static 'images/b1.jpg' %} " alt="" class="img-fluid"
         style="border-radius: 25px;width: 100%;height: 100%;">
     </div>
-    <div class="col-3"><img src="{% static 'images/burj3.jpg' %} " alt="" class="img-fluid"
+    <div class="col-3">
+      <img src="{% static 'images/burj3.jpg' %} " alt="" class="img-fluid"
         style="border-radius: 25px;width: 100%;height: 100%;">
     </div>
-    <div class="col-3"><img src="{% static 'images/12.jpeg' %} " alt="" class="img-fluid"
+    <div class="col-3">
+      <img src="{% static 'images/12.jpeg' %} " alt="" class="img-fluid"
         style="border-radius: 25px;width: 100%;height: 100%;">
     </div>
   </div>
-
 
   <div class="mt-5">
     <div class="row">
       <div class="col-1"></div>
       <div class="col-md-4">
-        <div class="card" style="width: 400px;border-radius: 25px;">
+        <div class="card" style="width: 400px;border-radius: 25px;"><a href="/hotels/">
           <img src="https://www.readersdigest.ca/wp-content/uploads/2015/10/burj-al-arab-luxurious-hotels.jpg"
-            class="card-img-top,img-fluid" alt="..." >
+            class="card-img-top,img-fluid" alt="..." 
+            width="400px" height="350px"></a>
           <div class="card-body">
             <h5 class="card-title">LUXOURY HOTELS</h5>
             <p class="card-text"></p>
-            <a href=" /hotels/" class="btn btn-dark" id="btn1">reserve </a>
+            <a href="/hotels/" class="btn btn-dark" id="btn1">reserve </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card" style="width: 400px;border-radius: 25px;margin-left: 20px;">
+          <a href="/hotels/">
           <img
             src="https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/master/pass/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg"
-            class="card-img-top,img-fluid" alt="...">
+            class="card-img-top,img-fluid" alt="..."
+            width="400px" height="350px"></a>
           <div class="card-body">
             <h5 class="card-title">LUXOURY RESORTS</h5>
             <p class="card-text"></p>

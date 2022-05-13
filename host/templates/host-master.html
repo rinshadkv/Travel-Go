@@ -18,18 +18,20 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/8ddc754e9e.js" crossorigin="anonymous"></script>
-    
+
     <link rel="stylesheet" href="{% static 'css/master.css' %}">
     <style>
-        a{
+        a {
             text-decoration: none;
-            color:white;
-            
+            color: white;
+
         }
-        a:hover{
+
+        a:hover {
             color: green;
         }
-        a:focus{
+
+        a:focus {
             color: red;
         }
     </style>
@@ -38,37 +40,44 @@
 <body>
     <div class="container-fluid " style="height: 100%;">
         <div class="row" style="height: 100%;">
-       
-            <div class="col-2 bg-dark" style="background-color: rgb(192, 209, 214);border: 1px ;padding: 10px;height: 600px;">
 
-<div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-dashboard/"> <i class="fa-solid fa-palette"></i>            Dashboard</a></div>               
+            <div class="col-2 bg-dark"
+                style="background-color: rgb(192, 209, 214);border: 1px ;padding: 10px;height: 600px;">
 
-              
-
-<div  style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/hotel-details/"> <i class="fa-solid fa-hotel"></i>  Hotel details</a></div>
-<div  style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-add-rooms/"> <i class="fa-solid fa-bed"></i>  Add room</a></div>
-<div  style="height: 15%;padding-left: 10px;"  class="links"> <a href="/host/host-view-booking/"><i class="fa-solid fa-clipboard-check"></i> view booking</a></div>
-<div  style="height: 15%;padding-left: 10px;"  class="links"> <a href=""><i class="fa-light fa-thumbs-up"></i> guest reviews</a></div>
-
-<div  style="height: 15%;padding-left: 10px;"  class="links"> <a href="/host/host-profile/"> <i class="fa-solid fa-address-card"></i> Profile</a></div>
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-dashboard/"> <i
+                            class="fa-solid fa-palette"></i> Dashboard</a></div>
 
 
 
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/hotel-details/"> <i
+                            class="fa-solid fa-hotel"></i> Hotel details</a></div>
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-add-rooms/"> <i
+                            class="fa-solid fa-bed"></i> Add room</a></div>
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-view-booking/"><i
+                            class="fa-solid fa-clipboard-check"></i> view booking</a></div>
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href=""><i
+                            class="fa-light fa-thumbs-up"></i> guest reviews</a></div>
 
- 
-         </div>
-         <div class="col-9 ">
-         {% block content %}
-      
-         {% endblock %}
-        </div>
+                <div style="height: 15%;padding-left: 10px;" class="links"> <a href="/host/host-profile/"> <i
+                            class="fa-solid fa-address-card"></i> Profile</a></div>
+
+
+
+
+
+            </div>
+            <div class="col-9 ">
+                {% block content %}
+
+                {% endblock %}
+            </div>
 
         </div>
 
 
 
     </div>
-    
+
 </body>
 
 </html>
