@@ -2,100 +2,70 @@
 {% block content %}
 {% load static %}
 <style>
-   
+
 </style>
-
-<div style="border: 1px solid ;">
-    <h4 style="border: 1px soild black;background-color: red;color: white; ">Add room details</h4>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-    <div class="row">
-        
-            <div class="col-5">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="">room id or name</label>
-                        </td>
-                        <td>
-                            <input type="text" placeholder="Enter room name">
-                        </td>
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-5 " style="border: 1px solid black;">
+        <div >
 
 
-                    </tr>
-                    <tr><td></td>
-                        <th><label for="">guest capacity</label> </th>
-                    </tr>
-                    <tr>
-                        <td> <label for="">adult</label></td>
-                        <td> <input type="number" min="1"></td>
 
-                    </tr>
-                    <tr>
-                        <td><label for="">child</label></td>
-                        <td><input type="number" min="0" ></td>
 
-                    </tr>
-                    <tr>
-<div id="addimage">
-    <td>
-    <label for="">image</label>
-    
-</td>
-<td>
-    <input type="file">
-   
-</td>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="name">room  name</label>
+                <input type="text" placeholder="Enter room name" name="room_name" id="room_name" class="form-control">
+                <label for="room-number">room  number</label>
+                <input type="text" placeholder=" room number must be unique" name="room_number" id="room-number" class="form-control">
 
-                    </tr>
+                <h6>guest capacity</h6>
 
+                <label for="adult">adult</label>
+                <input type="number" min="1" name="adult" id="adult" class="form-control">
+
+                <label for="child">child</label>
+                <input type="number" min="0" id="child" name="child" class="form-control">
+
+                <label for="price">price</label>
+
+                <input type="number" min="1" id="price" name="price" class="form-control">
+
+                <label for="beds">beds</label>
+
+
+                <input type="number" placeholder="totel beds" min="1" id="beds" name="beds" class="form-control">
+                <div class="text-center" style="padding-top: 10px">
+                    <button class="btn btn-success" type="submit" id="add-btn">add</button>
                 </div>
-                <span class="btn btn-danger" onclick="addfunction()">add more image</span>
+            </form>
+            {{msg}}
+        </div>
 
-
-                </table>
-
-            </div>
-            <div class="col-5">
-                <table>
-                    <tr>
-                        <td>
-                            <label for="">price</label>
-
-
-                        </td>
-                        <td>
-                            <input type="number" min="1">
-                        </td>
-                    </tr>
-                    <tr><td></td></tr>
-                    <tr>
-                        <td>
-                        <label for="">beds</label>
-                    </td>
-                    <td>
-                        <input type="number" placeholder="totel beds" min="1">
-                    </td>
-                </tr>
-                </table>
-<button class="btn btn-success" type="submit" style="margin-top: 50px;">add</button>
-            </div>
-        
     </div>
 
-</form>
+   
 
 
 
 </div>
-</div>
+
+
+
 
 <script>
-    function addfunction() {
-  var element = document.getElementById("addimage");
-  element.classList.add("");
-}
+    $(document).ready(function () {
+
+        $("#add-btn").click(function () {
+            if (msg == false) {
+                alert('room added successfully')
+            }
+        })
+    })
 </script>
+
+
+
 
 
 {% endblock %}

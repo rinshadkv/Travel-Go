@@ -1,4 +1,4 @@
-{% extends 'host-master.html' %}
+<!-- {% extends 'host-master.html' %}
 {% block content %}
 {% load static %}
 <div>
@@ -26,28 +26,20 @@
 
 
     <div style="border: solid 1px;width: 50%;padding: 20px;height: 400px;margin-top: 50px;">
-        <form >
+        <form method="POST" enctype="multipart/form-data">
            {% csrf_token %}
         <table>
           <thead><h1 >
-              Personal details
-          </h1>
+             set a login details
           </thead>
-            <tr>
-                <td> <label for="seller name">full name</label></td>
-           <td><input type="text" name='seller_name'>
-            <br></td>
-            </tr>
+          
             <tr>
                 <td><label for="email">email</label></td>
                 <td><input type="email" name='email'></td>
             </tr>
         
     
-       <tr>
-           <td><label for="addres">address</label></td>
-           <td><input type="text" name='address'></td>
-       </tr>
+      
         <tr>
             <td><label for="user name">user name</label></td>
             <td><input type="text" name='user_name'></td>
@@ -59,7 +51,7 @@
         </tr>
         
         <tr>
-          <td> profile image</td>
+          <!-- <td> profile image</td> -->
           <td><input type="file" name='image'></td>
       </tr>
        
@@ -74,4 +66,4 @@
     
 </div>
 
-{% endblock %}
+{% endblock %} -->

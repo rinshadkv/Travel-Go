@@ -1,43 +1,328 @@
 {% extends 'host-master.html' %}
 {% block content %}
 {% load static %}
+<style>
+  .no-edit {
+    border: 0px;
+
+  }
+
+
+  .edit-text {
+    border: 1px solid black;
+  }
+</style>
 <div>
-    <div class="container-fluid">
-<div class="row" style="margin-top: 30px;">
-<div class="col-9">
-<h3>Welcome </h3>
+  <div class="container">
+    
+    <div class="row" style="margin-top: 30px;">
+      
 
-</div>
-<div class="col-3" style="box-shadow: 5px 10px;">
-    <div class="card" style="width: 18rem;">
-        <!-- profile image -->
-        <img src="" class="card-img-top" alt=""/>
-        <div class="card-body">
-            <!-- user name -->
-          <h5 class="card-title"></h5>
-          <!-- email -->
-          <p class="card-text"></p>
-        </div>
-        <ul class="list-group list-group-light list-group-small">
-            <!-- phone number -->
-          <li class="list-group-item px-4"></li>
-          <!-- place -->
-          <li class="list-group-item px-4"></li>
-          <li class="list-group-item px-4"></li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
+      <div class="col-5" style="border: 1px;padding: 10px;box-shadow:5px 5px  10px #888888;">
+        <h4 style="display:inline;">PERSONAL DETAILS</h4><i class="fa-solid fa-pen" id="update-personal"
+          style="padding-left: 17px"></i>
+        <form action="/host/update-details" method="POST">
+          {% csrf_token %}
+
+          <label for="name">HOTEL NAME</label>
+          <input type="text" name="name" id="name" class=" no-edit style" disabled
+            value="{{data.property_id.property_name}}"><br>
+          <label for="country">COUNTRY</label>
+          <input type="text" name="country" id="country" class="  no-edit   style" disabled
+            value="{{data.property_id.country}}"><br>
+          <div>
+            <label for="phone">PHONE</label>
+
+            <input type="text" name="phone" id="phone" class="  no-edit  style" disabled
+              value="{{data.property_id.countrycode}}   {{data.property_id.phone}}"><br>
+          </div>
+          <label for="place">PLACE</label>
+          <input type="text" name="place" id="place" class="  no-edit  style" disabled
+            value="{{data.property_id.place}}"><br>
+
+
+
+
+
+
+
+
+          <div class="text-center"><button class="btn btn-success" hidden id="personal_btn"
+              type="button">update</button></div>
+        </form>
       </div>
-</div>
-
-</div>
-
-
+      <div class="col-4" style="border: 1px;padding: 10px;box-shadow:5px 5px  10px #888888;">
+        <h4 style="display: inline;">LOGIN DETAILS</h4><i class="fa-solid fa-pen" id="update-login"
+          style="padding-left: 17px"></i>
 
 
+        <br>
+        <label for="email">EMAIL</label>
+        <td>
+          <input type="text" name="email" id="email" class="no-edit" disabled value="{{data.email}}"><br></tr>
+<br>
+          <div class="text-center"><button class="btn btn-success" hidden id="login_btn" type="button">update</button>
+          </div>
+
+            <label for="password">PASSWORD </label><i class="fa-solid fa-pen" id="update-password"
+              style="padding-left: 17px"></i>
+        <td>
+          <input type="password" name="old_password" id="old_password" class="no-edit" disabled value=""
+            placeholder="......."><br></tr>
+
+          <div id="new_password_div" hidden>
+            <label for="new-password">NEW PASSWORD</label>
+
+            <input type="password" name="new_password" id="new_password" class="  " value="" placeholder="new password"><br>
+          </div>
+
+         
+          <div class="text-center"><button class="btn btn-success" hidden id="password_btn"
+              type="button">update</button>
+          </div>
+          </form>
+      </div>
+
+
+      <div class="col-3 ">
+        <div class="card">
+          <form method="POST" enctype="multipart/form-data" id="change_profileimage">
+
+            <img src="{{data.property_id.image.url}}" id="img" class="card-img-top" alt="" />
+            <div class="text-center">
+            <label for="new_photo" style="color: rgb(234, 21, 21);" class="img_btn">Upload profile</label>
+            <input type="file" name="new_photo" id="new_photo" style="display: none;">
+            
+            </div>
+            <div class="card-body">
+              <div class="text-center" id="new_div_img" hidden> <button type="submit"
+                  class="btn btn-success">submit</button>
+              </div>
+
+              <h6 class="card-title">email <span style="color: green;">verified  <i class="fa-solid fa-circle-check"></i></span></h6>
+              <h6 class="card-title">phone    <span style="color: green;">verified  <i class="fa-solid fa-circle-check"></i></span></h6>
+
+
+
+            </div>
+        </div>
+        </form>
+      </div>
     </div>
+  </div>
 
+</div>
+
+
+
+
+</div>
+<script>
+  $(document).ready(function () {
+
+
+    $('#personal_btn').click(function () {
+      $.ajax({
+        url: '/host/update-details',
+        type: 'GET',
+        data: {
+          name: $('#name').val(),
+          country: $('#country').val(),
+          phone: $('#phone').val(),
+          place: $('#place').val(),
+
+
+
+        },
+        success: function (response) {
+          console.log(response.msg)
+          if (response.msg == true) {
+
+            alert('updated successfully')
+            $('#name').attr({ 'class': 'no-edit', 'disabled': true }),
+              $('#country').attr({ 'class': 'no-edit', 'disabled': true }),
+              $('#phone').attr({ 'class': 'no-edit', 'disabled': true }),
+              $('#place').attr({ 'class': 'no-edit', 'disabled': true }),
+              $('#personal_btn').attr({ 'hidden': true })
+
+
+
+
+          }
+          else {
+            alert('something went wrong')
+          }
+
+        },
+
+
+
+      })
+    })
+    $('#update-personal').click(function () {
+      var current_class = $('#name').attr('class')
+
+      if (current_class == 'no-edit') {
+        $('#name').attr({ 'class': 'edit-text', 'disabled': false }),
+          $('#country').attr({ 'class': 'edit-text', 'disabled': false }),
+          $('#phone').attr({ 'class': 'edit-text', 'disabled': false }),
+          $('#place').attr({ 'class': 'edit-text', 'disabled': false }),
+          $('#personal_btn').attr({ 'hidden': false })
+
+      }
+
+      else {
+        $('#name').attr({ 'class': 'no-edit', 'disabled': true }),
+          $('#country').attr({ 'class': 'no-edit', 'disabled': true }),
+          $('#phone').attr({ 'class': 'no-edit', 'disabled': true }),
+          $('#place').attr({ 'class': 'no-edit', 'disabled': true }),
+          $('#personal_btn').attr({ 'hidden': true })
+
+
+
+      }
+    })
+
+
+
+
+
+    $('#login_btn').click(function () {
+      $.ajax({
+        url: '/host/update-login-details',
+        type: 'GET',
+        data: {
+
+          email: $('#email').val(),
+
+        },
+        success: function (response) {
+          if (response.msg == true) {
+
+            alert('updated successfully')
+
+            $('#email').attr({ 'class': 'no-edit', 'disabled': true }),
+
+              $('#login_btn').attr({ 'hidden': true })
+          }
+          else {
+            alert(' something wrong')
+          }
+        }
+      })
+    })
+
+    $('#update-login').click(function () {
+
+      var login_class = $('#email').attr('class')
+
+      if (login_class == 'no-edit') {
+
+
+        $('#email').attr({ 'class': 'edit-text', 'disabled': false }),
+
+          $('#login_btn').attr({ 'hidden': false })
+
+      }
+      else {
+
+
+        $('#email').attr({ 'class': 'no-edit', 'disabled': true }),
+
+          $('#login_btn').attr({ 'hidden': true })
+
+      }
+    })
+
+
+
+
+    $('#password_btn').click(function () {
+      $.ajax({
+        url: '/host/update-password',
+        type: 'GET',
+        data: {
+          old_password: $('#old_password').val(),
+          new_password: $('#new_password').val()
+        },
+        success: function (response) {
+          if (response.msg == true) {
+
+            alert('updated successfully')
+            $('#old_password').attr({ 'class': 'no-edit', 'disabled': true }),
+              $('#new_password_div').attr({ 'hidden': true }),
+              $('#password_btn').attr({ 'hidden': true })
+
+          }
+          else {
+            alert(' something wrong')
+          }
+        }
+      })
+
+
+    })
+
+
+    $('#update-password').click(function () {
+      var password_class = $('#old_password').attr('class')
+      if (password_class == 'no-edit') {
+        $('#old_password').attr({ 'class': 'edit-text', 'disabled': false }),
+          $('#new_password_div').attr({ 'hidden': false }),
+          $('#password_btn').attr({ 'hidden': false })
+
+      }
+      else {
+        $('#old_password').attr({ 'class': 'no-edit', 'disabled': true }),
+          $('#new_password_div').attr({ 'hidden': true }),
+          $('#password_btn').attr({ 'hidden': true })
+
+      }
+
+
+    })
+
+    $('.img_btn').click(function () {
+      $('#new_div_img').attr({ 'hidden': false })
+    })
+
+    $('#change_profileimage').on("submit", function (e) {
+      e.preventDefault();
+
+      var file_data = $('#new_photo').prop('files')[0]
+
+      var form_data = new FormData();
+      form_data.append('file', file_data)
+      $.ajaxSetup({
+        headers: {
+          "X-CSRFToken": '{{csrf_token}}'
+        }
+      });
+
+      $.ajax({
+        url: '/host/update-profile-image/',
+        data: form_data,
+        type: 'POST',
+        contentType: false,
+        cache: false,
+        processData: false,
+        success: function (data) {
+
+          alert(data.msg)
+          $('#new_div_img').attr({ 'hidden': true })
+          $("#img").attr('src', data.img)
+
+        }
+
+
+
+
+
+
+      })
+    })
+  })
+
+</script>
 </div>
 {% endblock %}

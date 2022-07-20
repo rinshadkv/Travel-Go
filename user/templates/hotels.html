@@ -1,85 +1,69 @@
 {% extends 'usermaster.html' %}
 {% block content %}
 {% load static %}
-<div >
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+</style>
+{% if h_data %}
+{% for data in h_data %}
+<div class="container-fluid">
+<div class="row" style="border: 1px solid; height: 300px;margin-top: 10px;">
 
-
-     <style>
-       img{
-         border-radius: 20px;
-        
-       }
-       a{
-         text-decoration: none;
-         color: black;
-         size: 30px;
-         
-       }
-       
-         
-       
-     </style>
-<h2 style="margin-left: 80px;margin-top: 20px;">HOTELS</h2>
-      <br><br>
-      
-       <div class="row">
-<div class="col-1"></div>
-<div class="col-4"><a href="/resorts/" ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZEFfkTxMrLDcixM2K3XXEO__0vXS2IcGAYw&usqp=CAU" alt="" style="width: 100%;height: 100%;">india</a></div>
-<div class="col-4"><a href="/resorts/" ><img src="{% static 'images/burj 1.jpg' %}" alt="" style="width: 100%;height: 100%;" class="img-fluid">middle east</a></div>
-
-
-
-       </div> 
-       <br><br><br>
-       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-4"  ><a href="/resorts/" ><img src="https://www.rentacarbestprice.com/wp-content/uploads/2016/09/image-12.jpeg" alt="" style="width: 100%;height: 100%;">europe</a></div>
-        <div class="col-4" ><a href="/resorts/" ><img src="https://content.fortune.com/wp-content/uploads/2021/05/Plaza-Exterior-from-Central-Park.jpg" alt="" style="width: 100%;height: 100%;">other place</a></div>
-        
-        
-        
-               </div> 
-        
-        <br><br><br>
-
+  <div class="col-4"><img src="{{data.prop_image.url}}" alt="" class="img-fluid"
+      style="height:300px;width: 100%;">
   </div>
-</div>  
-        
-        
-        
-        
-    
-    
 
 
+  <div class="col-2" style="margin-left: 0;">
+    <img class="img-fluid" src="{{data.img0.url}}" alt="" style="height:140px; width: 100%;">
+    <img class="img-fluid" src="{{data.img1.url}}" alt="" style="height:140px;width: 100%;margin-top: 5px;" >
+  </div>
 
-
-
-    
-</div>
-<h2 style="margin-left: 80px;">RESORTS</h2>
-<div class="row">
-  <div class="col-1"></div>
-  <div class="col-4"><a href="/resorts/" ><img src="https://gos3.ibcdn.com/c99fbddea80011eba4300242ac110002.jpg" alt="" style="width: 100%;height: 100%;">india</a></div>
-  <div class="col-4"><a href="/resorts/" ><img src="https://pickyourtrail.com/blog/wp-content/uploads/2020/04/Yachting-Lifestyle-365.jpg" alt="" style="width: 100%;height: 100%;" class="img-fluid">middle east</a></div>
   
-  
-  
-         </div> 
-         <br><br><br>
-         <div class="row">
-          <div class="col-1"></div>
-          <div class="col-4"  ><a href="/resorts/" ><img src="{% static 'images/spain.jpg' %}" alt="" style="width: 100%;height: 100%;">europe</a></div>
-          <div class="col-4"><a href="/resorts/" ><img src="https://exp.cdn-hotels.com/hotels/17000000/16830000/16821700/16821632/7e6bd616_z.jpg?impolicy=fcrop&w=773&h=530&q=high" alt="" style="width: 100%;height: 100%;">other place</a></div>
-          
-          
-          
-                 </div> 
-          
-          <br><br><br>
-  
+  <div class="col-5">
+    <h2>{{data.property_name|upper}}</h2>
+      <h4>{{data.place}} {{data.country}}</h4>
+    <p><span><a href=""><i class="fa-solid fa-location-dot"></i>
+          location</a></span></p>
+    <div style="width: 100px;height: 25px;background-color: rgb(94, 171, 94);display: inline;"><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+    top rated
+    <div>
+     <h4> Amenities</h4>
+     <i class="fa-solid fa-wifi"></i>
+
+
+
+
     </div>
+    
+    <a href="/view-hotel/{{data.p_id}}" class="btn btn-danger">view hotel</a>
+    <a href="/view-hotel/{{data.p_id}}" class="btn btn-success" id="book_now">book now</a>
+  </div>
+
+</div>
+{% endfor %}
+{% endif %}
+<script>
+
+  $(document).ready(function(){
+    $("#book_now").click(function(){
+      alert("please select a room or villa before booking")
+    })
 
 
-            
+
+  })
+</script>
+
+
+
+
+
+
+    
 {% endblock %}

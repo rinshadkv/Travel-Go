@@ -1,47 +1,505 @@
 {% extends 'host-master.html' %}
 {% block content %}
 {% load static %}
+<style>
+   .edit {
+      border: 0px;
+      background-color: white;
+   }
+
+   .edit-now {
+      border: 1px solid black;
+   }
+</style>
 <div>
- <div class="row">
-    <div class="col9">
-      <!-- hotel name -->
-      <h1 style="text-align: center;">
-abc hotel
-       </h1>
-       <!-- place -->
-       <h6 style="text-align: center;">
-india
-       </h6>
-<table style="border-spacing: 5px;border-collapse: separate;width: 100%;background-color: azure;">
-   <tr>
-      <th>owner name</th>
-      <td></td>
-   </tr>
-      <tr>
-      <th>totel rooms</th>
-      <td></td>
-   </tr>
-   <tr>
-      <th>totel staff</th>
-      <td></td>
-   </tr>
-   <tr>
-      <th>facility</th>
-      <td></td>
-   </tr>
-</table>
 
-    </div>
+   <div class="row">
+
+      <div class="col9">
+         <!-- hotel name -->
+         <h1 style="text-align: center;">
+            {{data2.property_name}}
+         </h1>
+         <!-- place -->
+         <h6 style="text-align: center;">
+            {{data2.place}}
+         </h6>
+         <h6 style="text-align: center;">
+            {{data2.country}}
+         </h6>
+
+         <div class="float-right"><button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+               data-bs-target="#upload-hotel-images">
+               upload  hotel images
+            </button>
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+               data-bs-target="#upload-room-images">
+               upload room images
+            </button>
+            <button type="button" class="btn btn-outline-warning " data-bs-toggle="modal"
+               data-bs-target="#add-amenities">
+               add Amenties
+            </button>
+            <button type="button" class="btn btn-outline-warning " data-bs-toggle="modal"
+            data-bs-target="#add-policy">
+            add policy & rules
+         </button>
+         
+         </div>
+
+<div>
+   about 
+   {{desc.description}}
+</div>
+policiy
+{{amenities.amenities}}
+         <div class="table-responsive-lg">
+            <table class="table ">
+
+               {% if data %}
+
+               <thead class="bg-light">
+                  <tr>
+                     <th> Room Name</th>
+                     <th>Room number</th>
+                     <th>guest capacity</th>
+                     <th>price</th>
+                     <th>beds</th>
+                     <th>status</th>
+                     <th>edit</th>
+                     <th>action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {% for r in data %}
+                  <form action="/host/change-status/" method="POST">
+                     {% csrf_token %}
+                  <tr>
+
+                     <td>{{r.room_name}}</td>
+                     <td>{{r.room_number}} </td>
+                     <td>
+                        <p>adult - {{r.adult}}<br>
+                        <p>child - {{r.child}}
+                     </td>
+                     <td>{{r.price}}</td>
+                     <td>{{r.beds}}</td>
+                     <td hidden><input type="text" value="{{r.id}}" name="r_id"></td> 
+                        {% if r.status %}
+                     
+                     <td>
+                        <button class="btn btn-outline-danger" name="unavilable">un avilable</button>
+                     </td>
+                     {% else %}
+                     <td><button class="btn btn-outline-success" id="status-btn" name="avilable">avilable</button>
+                     </td>
+
+                     {% endif %}
+                 
+                     <td>
+                        <button class="btn btn-outline-primary " type="button" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal" onclick="fun(' {{r.id}}','{{r.room_name}}','{{r.adult}}','{{r.child}}','{{r.price}}','{{r.beds}}')">edit</button>
+                     </td>
+                     <td>
+                        <form action="" method="POST" >
+                           {% csrf_token %}
+                           <input type="text "  id="room_id" value="" name="room_id" hidden>
+                        <button type="submit" class="btn btn-outline-danger">remove</button>
+                     </td>
+                  </form>
+                  </tr>
+               </form>
+
+                  {% endfor %}
+               </tbody>
+
+            </table>
+
+
+
+            </table>
+            
+         </div>
+
+
+      </div>
+   </div>
+   <!-- hotel images  -->
+   <div class="row">
+    
+         {% if hotel %}
+         <h4> hotel images</h4>
+         {% for i in hotel %}
+
+         <img src="{{i.property_image.url}}" class="img-thumbnail" alt="iiiii" style="width: 20%; height: 200px;">
+        
+        
+         {% endfor %}
+         {% endif %}
+          
+         
+      </div>
+      <!-- room images  -->
+      <div class="row ">
+         {% if rooms %}
+         <h4>rooms images</h4>
+         {% for s in rooms %}
+         <img src="{{s.property_image.url}}" alt="" style="width: 20%;height: 200px;">
+
+         {% endfor %}
+         {% endif %}
+          
+         
+      </div>
+
+
+<!-- hotel image upload  -->
+<form action="/host/upload_hotel_images/" method="POST" enctype="multipart/form-data">
+   {% csrf_token %}
+      <div class="modal fade" id="upload-hotel-images" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">upload images</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <p>images upload to</p>
+                 
+                     <div id="add-images-hotel"> <input type="file" name="hotel_images"></div>
+                     <button class="btn btn-warning" type="button" id="add-more-hotel">add more images</button>
+               
+
+
+
+
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-success">submit</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+
+      <!-- room image upload -->
+      <form method="POST" action="/host/upload_room_images/" enctype="multipart/form-data">
+         {% csrf_token %}
+      <div class="modal fade" id="upload-room-images" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">upload images</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  
+                     <div id="add-images-rooms"> <input type="file" name="room_images"></div>
+                     <button class="btn btn-warning" type="button" id="add-more-rooms">add more images</button>
+                 
+                
+
+
+
+
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-success">submit</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+
+
+      <!-- Button trigger modal -->
+    
+
+      <!-- Modal room edit -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><span>
+                    
+
+
+
+                  </span></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form action="/host/update-room/" method="POST">
+                     {% csrf_token %}
+                    
+                    <input type="text "  id="room_id" value="" name="room_id" hidden>
+                     <div>
+                        <label for="room_name">room name</label>
+                        <input type="text" id="room_name" class="form-control"  name="room_name">
+                     </div>
+                     <div>
+                        <label for="adult">adult capacity</label>
+                        <input type="text" id="adult" class="form-control" name="adult">
+                     </div>
+                     <div>
+                        <label for="child">child capacity</label>
+                        <input type="text" id="child" class="form-control" name="child">
+                     </div>
+                     <div>
+                        <label for="price">price</label>
+                        <input type="text" id="price" class="form-control" name="price">
+                     </div>
+                     <div>
+                        <label for="beds">beds</label>
+                        <input type="text" id="beds" class="form-control" name="beds">
+                     </div>
+                     <div>
+                        <p style="color: red;">NB: room number cannot be change </p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                     </div>
+                     </form>
+              
+               </div>
+               
+            </div>
+         </div>
+      </div>
+<!-- amenities modal  -->
+      <div class="modal fade" id="add-amenities" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+
+                  <form action="/host/add-amenities/" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                     <div><label for="">wi-fi</label> &nbsp;&nbsp;
+
+                        <input type="checkbox" id="hotel"  name="amenities" value="wifi">&nbsp;&nbsp;
+
+                     </div>
+
+                     <div>
+                        <label for="">TV</label> &nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <input type="checkbox" id="hotel"  name="amenities" value="tv">&nbsp;&nbsp;
+
+
+                        <div><label for="">parking</label> &nbsp;&nbsp;
+
+                           <input type="checkbox" id="parking"  name="amenities" value="parking">
+
+                        </div>
+
+                        <div><label for="">Kitchen</label> &nbsp;&nbsp;
+
+                           <input type="checkbox" id="Kitchen"  name="amenities" value="kitchen">&nbsp;&nbsp;
+
+                        </div>
+                        <br>
+                        <div id="add-input">
+                           <input type="text" name="amenities" id="" placeholder="enter here" class="form-control">
+                        </div>
+                        <button class="btn btn-warning" type="button" id="add-btn">add more</button>
+
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-success">submit</button>
+               </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</div>
+<!-- poliicy modal -->
+<div class="modal fade" id="add-policy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">set policy </h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <form action="/host/about-property/" method="POST">
+            {% csrf_token %}
+            <label for="description ">About your hotel </label>
+            <textarea type="text" id="description " name="description" class="form-control"></textarea>
+            <label for="rules">Rules</label>
+            <textarea type="text" id="rules" name="rules" class="form-control" placeholder="include check in time and check out time"></textarea>
+
+
+
+
+
+
+  
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         <button type="submit" class="btn btn-outline-success">Save </button>
+       </div>
+      </form>
+     </div>
+   </div>
  </div>
-<div class="row">
-<div class="col-9">
-<h4>images</h4>
-<div class="col-2">
-   <img src="" alt="">
+{% endif %}
 </div>
-</div>
+<script>
+   $(document).ready(function () {
+      $("#add-btn").click(function () {
+         var elem = $("<input/>", {
+            type: "text",
+            placeholder: "enter here",
+            name: "amenities",
+            class: "form-control"
+
+         });
+         var removeLink = $("<button/>").html("cancel").attr('class', "btn btn-danger").click(function () {
+            $(elem).remove();
+            $(this).remove();
+         });
+         $("#add-input").append(elem).append(removeLink);
+      })
+      $("#add-more-hotel").click(function () {
+         var elem = $("<input/>", {
+            type: "file",
+
+            name: "hotel_images"
+
+         });
+         var removeLink = $("<button/>").html("cancel").attr('class', "btn btn-danger").click(function () {
+            $(elem).remove();
+            $(this).remove();
+         })
+         $("#add-images-hotel").append(elem).append(removeLink);
+      })
+
+      $("#add-more-rooms").click(function () {
+         var elem = $("<input/>", {
+            type: "file",
+
+            name: "room_images"
+
+         });
+         var removeLink = $("<button/>").html("cancel").attr('class', "btn btn-danger").click(function () {
+            $(elem).remove();
+            $(this).remove();
+         })
+         $("#add-images-rooms").append(elem).append(removeLink);
+      })
 
 
-</div>
-</div>
-{% endblock %}
+
+
+      // $(".test").click(function () {
+
+      //    var room_class = $("#price").attr('class')
+
+      //    if (room_class == 'edit form-control') {
+
+      //       $("#room_name").attr({ 'class': 'edit-now', 'disabled': false }),
+      //       $('.adult').attr({ 'class': 'edit-now', 'disabled': false }),
+      //       $('#child').attr({ 'class': 'edit-now', 'disabled': false }),
+      //       $('#price').attr({ 'class': 'edit-now', 'disabled': false }),
+      //       $('#beds').attr({ 'class': 'edit-now',  'disabled': false }),
+      //       $('#status-btn').attr({'hidden':true}),
+      //       $('#submit-btn').attr({'hidden':false})
+
+
+      //    }
+      //    else{
+      //       $("#room_name").attr({ 'class': 'edit', 'disabled': true }),
+      //       $('adult').attr({ 'class': 'edit', 'disabled': true }),
+      //       $('#child').attr({ 'class': 'edit', 'disabled': true }),
+      //       $('#price').attr({ 'class': 'edit', 'disabled': true }),
+      //       $('#beds').attr({ 'class': 'edit',  'disabled': true }),
+      //       $('#status-btn').attr({'hidden':false}),
+      //       $('#submit-btn').attr({'hidden':true})
+
+
+
+
+
+
+
+
+      //    }
+
+
+
+
+
+      // })
+      // $('#submit-btn').click(function(){
+      //    $.ajax({
+      //       url:'/host/update-room',
+      //       type:'GET',
+      //       data:{
+      //          room_name:$('#room_name').val(),
+      //          adult:$('#adult').val(),
+      //          child:$('#child').val(),
+      //          price:$('#price').val(),
+      //          beds:$('#beds').val(),
+
+      //       },
+      //       success: function (response) {
+      //       if (response.msg == true) {
+      //          alert('room details updated')
+
+
+
+      //       }
+      //       else{
+      //          alert("something wrong")
+      //       }
+      //    }
+
+
+
+
+
+
+
+      //    })
+
+
+
+
+      // })
+
+
+
+
+   })
+
+ function fun(id,room,adult,child,price,beds){
+   
+   $('#room_id').val(id)
+   $('#room_name').val(room)
+   $('#adult').val(adult)
+   $('#child').val(child)
+   $("#price").val(price)
+   $('#beds').val(beds)
+   
+
+ }
+
+
+
+
+</script>
+
+   {% endblock %}

@@ -1,0 +1,59 @@
+{% extends "admin-master.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <table class="table align-middle mb-0 bg-white table-hover">
+        <thead class="bg-light">
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>country</th>
+                <th>place</th>
+                <th>phone</th>
+              
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+           {% if data %}
+           <form action="/localadmin/approve-host/" method="POST">
+            {% csrf_token %}
+           {% for h in data %}
+            <tr>
+               
+                <td >{{h.property_id.id}}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <img src="{{h.property_id.image.url}}" alt=""
+                            style="width: 45px; height: 45px" class="rounded-circle" />
+                        <div class="ms-3">
+                            <p class="fw-bold mb-1">{{h.property_id.property_name}}</p>
+                            <p class="text-muted mb-0">{{h.email}}</p>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <p class="fw-normal mb-1">{{h.property_id.country}}</p>
+                    <!-- <p class="text-muted mb-0">IT department</p> -->
+                </td>
+                <td>
+                    <p  class="fw-normal mb-1"> {{h.property_id.place}}</p>
+                </td>
+                <td>
+                    <p  class="fw-normal mb-1"> {{h.property_id.countrycode}} {{h.property_id.phone}}</p>
+                </td>
+                <td hidden><input type="text" name="p_id" value="{{h.property_id.id}}"></td>
+                <td>
+                    <button class="btn btn-outline-success" name="approve">approve</button>
+                    <button class="btn btn-outline-danger" name="decline">decline</button>
+                </td>
+          
+            </tr>
+            {% endfor %}
+        </form>
+            {% endif %}
+           
+        </tbody>
+    </table>
+</div>
+{% endblock %}

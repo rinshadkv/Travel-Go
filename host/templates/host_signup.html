@@ -3,144 +3,285 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>travel go host signup</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/8ddc754e9e.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{% static 'javascript\signup.js'%}"></script>
-    <style>
-        body {
-            background-image: url('https://www.pixel4k.com/wp-content/uploads/2018/09/palace-of-fine-arts-arch-night-san-francisco-california-4k_1538066934-768x432.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>travel go host signup</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/8ddc754e9e.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"
+    integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{% static 'javascript\signup.js'%}"></script>
+  <style>
+    body {
+      background-image: url('https://www.pixel4k.com/wp-content/uploads/2018/09/palace-of-fine-arts-arch-night-san-francisco-california-4k_1538066934-768x432.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
 
-        }
+    }
 
-        * {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.error {
+    .error {
       color: red;
-   
+
       font-weight: 1000;
-   }
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: transparent;
-}
+    }
 
-/* Full-width input fields */
-input[type=text], input[type=tel] {
+    /* Add padding to containers */
+    .container {
+      padding: 16px;
+      background-color: transparent;
+    }
+select{
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 25px;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 25px;
 }
+    /* Full-width input fields */
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=file],
+    input[type=tel] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+      border-radius: 25px;
+    }
 
-input[type=text]:focus, input[type=tel]:focus {
-  background-color: #ddd;
-  outline: none;
-}
+    input[type=text]:focus,
+    input[type=password],
+    input[type=email],
+    input[type=file],
+    input[type=tel]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 10px;
-}
+    /* Overwrite default styles of hr */
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 10px;
+    }
 
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
+    /* Set a style for the submit button */
+    .registerbtn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 50%;
+      opacity: 0.9;
+      margin-left: 25%;
+    }
 
-.registerbtn:hover {
-  opacity: 1;
-}
+    .registerbtn:hover {
+      opacity: 1;
+    }
 
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
+    /* Add a blue text color to links */
+    a {
+      color: dodgerblue;
+    }
 
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
+    /* Set a grey background color and center the text of the "sign in" section */
+    .signin {
+      background-color: #f1f1f1;
+      text-align: center;
+    }
 
-label{
-    color: white;
-}
-    </style>
+    label {
+      color: white;
+    }
+    .type-size{
+      font-size: 20px;
+      color: rgb(11, 245, 214);
+    }
+  </style>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-12">
-            <h1  style="color: white;">TRAVEL GO</h1>
+  <div class="row">
+    <div class="col-12">
+      <h1 style="color: white;">TRAVEL GO</h1>
+
+    </div>
+
+  </div>
+  <form action="" id="signup" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  <div class="row">
+    <div class="col-1"></div>
+
+
+    
+      <div class="col-4">
+        <div class="container-fluid">
+
+          <hr>
+
+          <label for="name"><b>PROPERTY NAME</b></label>
+          <input type="text" placeholder="Enter full name" name="name" id="name" required class="form-control">
+          <br>
+          <label for="" class="form-label">PROPERTY TYPE</label><br>
+          <label for="hotel" class="type-size">Hotel</label>
+                        <input type="radio" value="hotel" id="hotel"  name="property_type" required>
+
+                        <label for="resort" class="type-size">Resort</label>
+                        <input type="radio" value="resort" id="resort" name="property_type" required>
+                     <br>
+          <label for="countr"><b>country </b></label>
+          <input type="text" placeholder="Enter country" name="country" id="country" required class="form-control">
+          <br>
+         <label for="">country code</label>
+          <select name="countrycode" id="country_code">
+            {% for code in data %}
+            <option value="{{code.dial_code}}">{{code.dial_code}}</option>
+            {% endfor %}
+          </select>
+          <label for="phone"><b>Phone </b></label>
+          <input type="tel" placeholder="Enter number" name="phone" id="phone" required class="form-control">
+          <br>
+         
+        </div>
+
+      </div>
+      <div class="col-1"></div>
+      <div class="col-4">
+        <div class="container-fluid">
+
+          <hr>
+
+          <label for="name"><b>EMAIL</b></label>
+          <input type="email" placeholder="email" name="email" id="email" required class="form-control">
+          <br>
+          <label for="place"><b>Place </b></label>
+          <input type="text" placeholder="place" name="place" id="place" required class="form-control">
+
+          <label for="place"><b>PASSWORD </b></label>
+          <input type="password" placeholder="password" name="password" id="password" required class="form-control">
+
+          <label for="place"><b> CONFIRM PASSWORD </b></label>
+          <input type="password" placeholder="confirm password" name="c_password" id="c_password" required class="form-control">
+
+          <label for="place"><b>PRIMARY  IMAGE </b></label>
+          <input type="file" placeholder="photo" name="pic" id="image" required class="form-control" aria-placeholder="hotel primary image">
 
         </div>
+
+
+
+
+
+      </div>
+      <hr>
+      <p style="color: white;">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <button type="submit" class="registerbtn">Register</button>
+
+   
+
+
+
+
+  </div>
+   </form>
+   <script>
+$(document).ready(function(){
+
+  $('#email').change(function(){
+      $.ajax({
+        url:"/host/check_email/",
+        type:"GET",
+        data:{
+         email: $('#email').val()
+        },
+        success:function(response){
+          if (response.exists==true){
+            alert("email alraedy taken")
+            $("#email").css({"color":"red"})
+           
+
+
+          }
+          else{
+            $("#email").css({"border-color":"green"})
+
+          }
+
+
+        }
         
-    </div>
-    
-<div class="row">
-    <div class="col-6"></div>
-    <div class="col-4">
-        <form action="/host/host-registration/" id="signup" method="post">
-          {% csrf_token %}
-            <div class="container-fluid">
-             
-              <hr>
-          
-              <label for="name"><b>FULL NAME</b></label>
-              <input type="text" placeholder="Enter full name" name="name" id="name" required>
-          <br>
-          <label for="countr"><b>country  </b></label>
-              <input type="text" placeholder="Enter country" name="country" id="country" required>
-<br>
-              <label for="phone"><b>Phone </b></label>
-              <input type="tel" placeholder="Enter number" name="phone" id="number" required>
-<br>
-              <label for="psw-repeat"><b>Place </b></label>
-              <input type="text" placeholder="place" name="place" id="place" required>
-              <hr>
-              <p style="color: white;">By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-          
-              <button type="submit" class="registerbtn">Register</button>
-            </div>
-            
-            
-          </form>
-          
+
+      })
+    })
 
 
-    </div>
-</div>
+    $('#phone').change(function(){
+      $.ajax({
+        url:"/host/check_details/",
+        type:"GET",
+        data:{
+         property_name: $('#name').val(),
+         country_code:$("#country_code").val(),
+         phone:$("#phone").val()
+        },
+        success:function(response){
+          if (response.property_exists==true){
+            alert("property already exists ")
+           
+           
+
+
+          }
+          else{
+            
+
+          }
+
+
+        }
+        
+
+      })
+    })
+
+
+
+
+
+
+
+})
+
+
+
+
+   </script>
 </body>
 
 </html>

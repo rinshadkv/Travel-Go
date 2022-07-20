@@ -1,0 +1,53 @@
+{% extends 'usermaster.html'%}
+{% load static %}
+{% block content %}
+
+{% if properties %}
+{% for property in properties %}
+<div class="container-fluid">
+<div class="row" style="border: 1px solid; height: 300px;">
+
+  <div class="col-4"><img src="{{property.prop_image.url}}" alt="" class="img-fluid"
+      style="height:300px;width: 100%;">
+  </div>
+
+
+  <div class="col-2" style="margin-left: 1px;padding: 5px;">
+    <img class="img-fluid" src="{{property.img0.url}}" alt="" style="height: 50%">
+
+    <img class="img-fluid" style="padding-top: 10px;" src="{{property.img1.url}}" alt="" style="height: 50%">
+  </div>
+
+  
+  <div class="col-5">
+    <h5>{{property.property_name}}</h5>
+      <h6>{{property.place}} {{property.country}}</h6>
+    <p><span><a href=""><i class="fa-solid fa-location-dot"></i>
+          location</a></span></p>
+    <div style="width: 100px;height: 25px;background-color: rgb(94, 171, 94);display: inline;"><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+        class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+    top rated
+    <div>
+     <h4> Amenities</h4>
+     <i class="fa-solid fa-wifi"></i>
+
+
+
+
+    </div>
+    
+    <a href="/view-hotel/{{data.p_id}}" class="btn btn-danger">view hotel</a>
+    <a href="/book-hotel/{{data.p_id}}" class="btn btn-success">book now</a>
+  </div>
+
+</div>
+
+
+{% endfor %}
+{% endif %}
+</div>
+
+</div>
+
+{% endblock %}

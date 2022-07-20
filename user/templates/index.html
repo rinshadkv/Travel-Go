@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>TRAVEL-GO</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
@@ -148,9 +148,10 @@ a.two {
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form class="d-flex">
+    <form class="d-flex" method="POST" action="{% url 'search' %}">
+      {% csrf_token %}
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-        style="border: 1px solid;box-shadow: 5px 5px 5px;">
+        style="border: 1px solid;box-shadow: 5px 5px 5px;" name="search_box">
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
   </div>
@@ -194,21 +195,21 @@ a.two {
     <div class="row">
       <div class="col-1"></div>
       <div class="col-md-4">
-        <div class="card" style="width: 400px;border-radius: 25px;"><a href="/hotels/">
+        <div class="card" style="width: 400px;border-radius: 25px;"><a href="{% url 'hotels' %}">
           <img src="https://www.readersdigest.ca/wp-content/uploads/2015/10/burj-al-arab-luxurious-hotels.jpg"
             class="card-img-top,img-fluid" alt="..." 
             width="400px" height="350px"></a>
           <div class="card-body">
             <h5 class="card-title">LUXOURY HOTELS</h5>
             <p class="card-text"></p>
-            <a href="/hotels/" class="btn btn-dark" id="btn1">reserve </a>
+            <a href="{% url 'hotels' %}" class="btn btn-dark" id="btn1">reserve </a>
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="card" style="width: 400px;border-radius: 25px;margin-left: 20px;">
-          <a href="/hotels/">
+          <a href="/resorts/">
           <img
             src="https://media.cntraveler.com/photos/53da60a46dec627b149e66f4/master/pass/hilton-moorea-lagoon-resort-spa-moorea-french-poly--110160-1.jpg"
             class="card-img-top,img-fluid" alt="..."
@@ -216,7 +217,7 @@ a.two {
           <div class="card-body">
             <h5 class="card-title">LUXOURY RESORTS</h5>
             <p class="card-text"></p>
-            <a href="/hotels/" class="btn btn-dark" id="btn2"> reserve </a>
+            <a href="/resorts/" class="btn btn-dark" id="btn2"> reserve </a>
           </div>
         </div>
       </div>

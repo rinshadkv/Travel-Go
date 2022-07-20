@@ -13,6 +13,9 @@ $(document).ready(function(){
             repassword:{
                 equalTo:"#password"
 
+            },
+            name:{
+                maxlength:15
             }
         }
     })

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>SIGN UP TRAVEL-GO</title>
 
   <head>
     <link rel="stylesheet" href="{% static 'css/signup.css'%}">
@@ -57,8 +57,13 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                     <div class="form-outline mb-4">
-                      <input type="email" id="username" class="form-control form-control-lg" name="email" required />
+                      <input type="email" id="username" class="form-control form-control-lg" name="email" required  />
                       <label class="form-label">Email address</label><br>
+                      <!-- <span id="spn_usr" style="color: red;"></span> -->
+                    </div>
+                    <div class="form-outline mb-4">
+                      <input type="text" id="name" class="form-control form-control-lg" name="name" required />
+                      <label class="form-label">Name</label><br>
                       <!-- <span id="spn_usr" style="color: red;"></span> -->
                     </div>
 
@@ -76,7 +81,7 @@
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="submit" >sign up</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit"  id="sumit_btn">sign up</button>
                     </div>
 
 
@@ -95,7 +100,54 @@
     </div>
   </section>
 
+<script>
+  $(document).ready(function(){
+    $('#username').change(function(){
+      $.ajax({
+        url:"/check_email/",
+        type:"GET",
+        data:{
+         email: $('#username').val()
+        },
+        success:function(response){
+          if (response.exists==true){
+            alert("email alraedy taken")
+            $("#username").css({"border-color":"red"})
+            $("#submit_btn").attr({"disabled":true})
 
+
+          }
+          else{
+            $("#username").css({"border-color":"green"})
+
+          }
+
+
+        }
+        
+
+      })
+      
+
+
+
+
+
+    })
+
+
+
+
+
+
+  })
+
+
+
+
+
+
+</script>
 
   </body>
 

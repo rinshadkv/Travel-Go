@@ -10,7 +10,26 @@ $(document).ready(function(){
             },
             country:{
 
+            },
+            email:{
+                email:true
+            },
+            username:{
+                minlength:4,
+                maxlength:20
+            },
+            password:{
+                minlength:8,
+                maxlength:16
+            },
+            c_password:{
+                equalTo:'#password'
+
+            },
+            image:{
+                
             }
+
         }
     })
 
